@@ -105,9 +105,15 @@ Set-Alias :q myexit
 Set-Alias :qa myexit
 function ssh-copy-id {
     param(
-        [string]$command
+        [string]$i = "$HOME\.ssh\id_rsa.pub",
+        [int]$p = 22,
+
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$HostName
     )
-	Invoke-Expression "cat ~/.ssh/id_rsa.pub | ssh $command 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'"
+
+    Get-Content $i |
+        ssh -p $p $HostName 'mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys'
 }
 function aim {
     nvim -u ~/.vimrc $args
