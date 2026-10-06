@@ -1,3 +1,6 @@
+[general]
+instanceIdleTimeout=-1
+
 [wsl2]
 networkingMode=mirrored
 autoProxy=false
