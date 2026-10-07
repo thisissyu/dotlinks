@@ -44,7 +44,8 @@
                 "size": 12
             },
             "opacity": 70,
-            "scrollbarState": "hidden"
+            "scrollbarState": "hidden",
+	    "bellStyle": "none"
         },
         "list": 
         [
